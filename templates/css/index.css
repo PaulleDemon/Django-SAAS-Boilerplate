@@ -40,7 +40,7 @@ header > .collapsable-header{
     display: flex;
     align-items: center;
     min-width: fit-content;
-    border-radius: 25px;
+    border-radius: 10px;
     padding: 5px 10px;
     transition: background-color 0.5s, color 0.5s;
 }
@@ -103,7 +103,7 @@ header > .collapsable-header{
 }
 
 .input:active, .input:focus, .input:focus-within{
-    border-bottom: 2px solid #BE3345 !important;
+    border-bottom: 2px solid #0e0a92 !important;
 }
 
 

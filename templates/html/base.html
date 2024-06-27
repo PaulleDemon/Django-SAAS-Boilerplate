@@ -133,11 +133,14 @@
                          max-lg:tw-place-items-start
                          ">
                 {% if not request.user.is_authenticated %}
-                    <a href="http://" class="btn !tw-bg-transparent !tw-text-black !tw-p-2
-                                                tw-border-2 tw-border-solid tw-border-black">
+                    <a href="{% url "login" %}" class="btn !tw-bg-transparent !tw-text-black !tw-p-2
+                                                tw-border-2 tw-border-solid tw-border-black
+                                                hover:!tw-bg-black hover:!tw-text-white
+                                                tw-duration-[0.3s] tw-transition-colors
+                                                ">
                         Login
                     </a>
-                    <a href="http://" class="btn !tw-p-2">Signup</a>
+                    <a href="{% url "signup" %}" class="btn !tw-p-2">Signup</a>
                 {% endif %}
             </div>
         </div>

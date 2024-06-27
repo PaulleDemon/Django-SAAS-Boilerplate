@@ -33,7 +33,9 @@ def login_view(request):
         return redirect('home')
 
     if request.method == "GET":
-        return render(request, 'login.html')
+        return render(request, 'html/authentication/login.html', {
+            'next': next_url
+        })
 
     email = request.POST["email"]
     password = request.POST["password"]
@@ -52,7 +54,7 @@ def login_view(request):
         
         return redirect('home')
 
-    return render(request, 'login.html', {'error': f'Invalid email or password'})
+    return render(request, 'html/authentication/login.html', {'error': f'Invalid email or password'})
 
 
 def logout_view(request):
@@ -64,7 +66,7 @@ def logout_view(request):
 @require_http_methods(["GET", "POST"])
 def signup_view(request):
     if request.method == "GET":
-        return render(request, 'signup.html')
+        return render(request, 'html/authentication/signup.html')
     
     else:   
         form = CustomUserCreationForm(request.POST)
@@ -82,11 +84,8 @@ def signup_view(request):
             url = reverse('verification-alert') + f'?email={username}'
             return redirect(url)
 
-        error = form.errors.as_data()
-
-        errors = [f'{list(error[x][0])[0]}' for x in error]
        
-        return render(request, 'signup.html', context={'errors': errors})
+        return render(request, 'html/authentication/signup.html', context={'errors': form.errors})
 
 
 def verification_alert(request):
@@ -94,7 +93,7 @@ def verification_alert(request):
         alert that the user has to verify their email
     """
     email = request.GET.get('email') or ''
-    return render(request, 'verification-alert.html', context={'from_email': settings.EMAIL_HOST,
+    return render(request, 'html/authentication/verification-alert.html', context={'from_email': settings.EMAIL_HOST,
                                                                 'to_email': email   
                                                             })
 
@@ -113,16 +112,16 @@ def verification_resend(request):
 
         if not user.exists():
 
-            return render(request, 'resend-confirmation.html', {'error': f'The email {email} is not registered'})
+            return render(request, 'html/authentication/resend-confirmation.html', {'error': f'The email {email} is not registered'})
 
         if user.filter(is_active=True):
-            return render(request, 'resend-confirmation.html', {'error': f'The email {email} is already active'})
+            return render(request, 'html/authentication/resend-confirmation.html', {'error': f'The email {email} is already active'})
 
         send_token(email)
         url = reverse('verification-alert') + f'?email={email}'
         return redirect(url)
 
-    return render(request, 'resend-confirmation.html')
+    return render(request, 'html/authentication/resend-confirmation.html')
 
 
 def verify_email(request):
@@ -140,7 +139,7 @@ def verify_email(request):
         return redirect('login')  # Redirect to a success page
 
     except jwt.ExpiredSignatureError:
-        return render(request, 'email-verification.html', context={'error': 'Token expired, request another'})
+        return render(request, 'html/authentication/email-verification.html', context={'error': 'Token expired, request another'})
 
     except (jwt.DecodeError, Exception):
-        return render(request, 'email-verification.html', context={'error': 'Unknown error occurred, request a new token'})
+        return render(request, 'html/authentication/email-verification.html', context={'error': 'Unknown error occurred, request a new token'})

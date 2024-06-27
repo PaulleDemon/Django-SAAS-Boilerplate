@@ -1,16 +1,18 @@
-{% extends './base.html' %} 
+{% extends 'base.html' %} 
 {% load static %} 
-{% block fullpage %}
+
+{% block content %}
     <div class="tw-bg-white tw-fixed tw-top-0 tw-z-[5000] tw-flex tw-flex-col tw-place-content-center tw-items-center tw-h-full tw-w-full">
 
-        <div class="tw-rounded-md tw-shadow-lg tw-w-[350px] tw-place-items-center tw-h-[300px] tw-flex tw-flex-col tw-place-content-center tw-p-3">
+        <div class="tw-rounded-lg tw-shadow-xl tw-w-[350px] tw-place-items-center tw-h-[300px] tw-flex tw-flex-col tw-place-content-center tw-p-3">
             {% if error %}
                 <div class='alert alert-danger'>
                     {{error}}
                 </div>
 
                 <div class="tw-mt-3">
-                    <a href="{% url "resend-verification" %}" class="btn btn-primary">Request new token</a>
+                    <a href="{% url "resend-verification" %}" class="btn tw-m-3 hover:tw-scale-[1.02]
+                    tw-duration-[0.3s]">Request new token</a>
                 </div>
 
             {% else %}
@@ -20,4 +22,4 @@
         </div>
         
     </div>
-{% endblock fullpage %}
+{% endblock content %}

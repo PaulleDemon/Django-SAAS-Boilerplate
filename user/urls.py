@@ -7,7 +7,7 @@ from .views import (login_view, signup_view, verify_email, o_auth_login,
 
 urlpatterns = [
 
-    path('login/', logout_view, name='login'),
+    path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('signup/', signup_view, name='signup'),
     path('email/verify/', verify_email, name='verify-email'),
