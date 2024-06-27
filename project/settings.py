@@ -127,7 +127,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-PAYMENT_MODEL = 'transaction.models.Transaction'
+PAYMENT_MODEL = 'transaction.Transaction'
 
 if DEBUG:
     PAYMENT_HOST = 'localhost:8000'

@@ -22,6 +22,12 @@ class Plan(models.Model):
     def __str__(self) -> str:
         return f'{self.name}'
 
+    def features_as_list(self):
+        
+        if self.features:
+            return self.features.replace(" ", "").split(",")
+
+        return []
 
 class Transaction(BasePayment):
 

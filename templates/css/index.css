@@ -355,6 +355,7 @@ header > .collapsable-header{
         flex-direction: column;
         opacity: 0;
         height: 100vh;
+        min-height: 100vh;
         height: 100dvh;
         width: 0vw;
         justify-content: space-between;

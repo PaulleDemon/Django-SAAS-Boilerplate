@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 
 from payments import get_payment_model, RedirectNeeded
 
+from .models import Plan
+
 Payment = get_payment_model()
 
 
@@ -50,3 +52,12 @@ def payment_details(request, payment_id):
         'payment.html',
         {'form': form, 'payment': payment}
     )
+
+
+def pricing(request):
+
+    plans = Plan.objects.all()
+
+    return render(request, "payment/pricing.html", {
+        'plans': plans
+    })

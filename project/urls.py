@@ -44,6 +44,7 @@ urlpatterns = [
     path('ratelimit-error/', rate_limiter_view, name='ratelimit-error'),
 
     # add new path here
+    path('', include('transaction.urls')),
 
     path('', home_view, name='home'),
 
