@@ -1,0 +1,29 @@
+#editor h1, #editor h2, #editor h3{
+    font-weight: 600;
+}
+
+#editor > *+*{
+    margin-bottom: 5px;
+}
+
+#editor h1{
+    font-size: 35px;
+}
+
+#editor h2{
+    font-size: 30px;
+}
+
+#editor h3{
+    font-size: 26px;
+}
+
+#editor pre{
+    padding: 10px;
+    background-color: #f4f4f5;
+    overflow-x: auto;
+}
+
+#editor a{
+    color: #0985c3;
+}

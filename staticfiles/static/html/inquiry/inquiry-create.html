@@ -1,0 +1,134 @@
+
+{% extends "../html/base.html" %}
+{% load custom_tags %}
+{% comment %} {% extends1 "../html/base.html" %} {% endcomment %}
+{% load tz %}
+{% load static %}
+
+
+
+{% comment %} {% block head %}
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfTdsYpAAAAAE3ePEpkWUwh9sEf0dugErefYQxy"></script>
+{% endblock head %} {% endcomment %}
+
+
+{% block title %}Contact us Form - {% endblock title %}
+{% block description %}Contact us{% endblock description %}
+
+{% block content %}
+
+    <section class="tw-w-full tw-flex 
+                    tw-flex-col
+                    tw-place-content-center 
+                    tw-px-[10%]
+                    tw-p-4
+                    tw-gap-5
+                    tw-min-h-[100vh]
+                    tw-place-items-center
+                    max-md:tw-flex-col
+                    tw-overflow-hidden
+                    "
+                    >
+        
+            <form
+                method="POST"
+                action="{% url "contact-us" %}"
+                onsubmit="return onSubmit(event)"
+                class="tw-flex tw-flex-col tw-gap-[5%] tw-h-full tw-mt-[5%]"
+            >
+                {% if errors %}
+                    <div class="error-container tw-m-2">{{errors}}</div>
+                {% endif %} {% csrf_token %}
+
+                <div class="tw-flex tw-flex-col tw-gap-2">
+                    <h2 class="tw-text-5xl max-md:tw-text-xl primary-text-color tw-font-medium">
+                        Contact us
+                    </h2>
+                    <h3 class="tw-text-3xl max-md:tw-text-3xl">
+                        Get your Template
+                    </h3>
+                </div>
+                <div
+                    class="tw-max-w-[550px] tw-min-w-[450px] max-md:tw-min-w-[300px] tw-mt-4 tw-flex tw-flex-col tw-gap-3"
+                >
+                    <div class="tw-flex tw-flex-col tw-gap-4">
+                        <div class="tw-flex tw-flex-col tw-gap-1">
+                            <div class="tw-text-gray-500">Name</div>
+                            <input
+                                type="text"
+                                class="input"
+                                name="name"
+                                maxlength="30"
+                                required
+                                value="{{data.name}}"
+                                placeholder="name"
+                            />
+                        </div>
+                        <div class="tw-flex tw-flex-col tw-gap-1">
+                            <div class="tw-text-gray-500">Phone</div>
+                            <div class="tw-flex tw-gap-1 tw-w-full tw-place-content-center">
+                                <select
+                                    name="country-codes"
+                                    id="country-codes"
+                                    class="input tw-min-w-[10%]"
+                                ></select>
+                                <input
+                                    type="text"
+                                    class="input tw-w-[70%]"
+                                    maxlength="15"
+                                    required
+                                    value="{{data.phone|phone_number}}"
+                                    name="phone-number"
+                                    placeholder="phone"
+                                />
+                                <input type="hidden" value="{{data.phone}}" name="phone" value="" />
+                            </div>
+                        </div>
+                        <div class="tw-flex tw-flex-col tw-gap-1">
+                            <div class="tw-text-gray-500">Email</div>
+                            <input
+                                type="email"
+                                class="input"
+                                required
+                                name="email"
+                                maxlength="250"
+                                placeholder="email"
+                                value="{{data.email}}"
+                                id="email"
+                            />
+                        </div>
+
+                        <div class="tw-flex tw-flex-col tw-w-full tw-gap-2">
+                            <div class="tw-text-gray-500">Enquiry</div>
+                            <textarea
+                                class="input tw-resize-y tw-w-full tw-max-h-[250px] tw-min-h-[40px]"
+                                name="description"
+                                maxlength="1200"
+                                required
+                                value="{{data.description}}"
+                                placeholder="enquiry"
+                            >{{data.description}}</textarea
+                            >
+                        </div>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn tw-transition-transform hover:tw-translate-x-2 tw-duration-[0.3s] tw-mt-5 tw-ml-auto"
+                    >
+                        <span>Submit</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+
+    </section>
+
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <script src="{% static "./js/inquiry/inquiry.js" %}"></script>
+
+{% endblock scripts %}

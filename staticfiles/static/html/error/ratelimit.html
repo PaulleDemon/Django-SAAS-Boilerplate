@@ -1,0 +1,18 @@
+{% extends './html/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="tw-flex tw-flex-col tw-min-h-[100vh] tw-p-3 tw-place-items-center tw-gap-4">
+
+    <img src="{% static "./assets/images/ratelimiter-doggy.png" %}" class="tw-max-w-[auto] tw-max-h-[400px]" alt="" srcset="">
+    <div class="tw-text-3xl tw-font-bold">
+        429 Too many requests
+    </div>
+    <div class="tw-text-xl">
+        Wooh! Stop right there. Thats too many requests that I can't handle
+    </div>
+    <a href="{% url "home" %}" class="btn btn-dark">
+        Go home :)
+    </a>
+</div>
+{% endblock content %}

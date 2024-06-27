@@ -1,0 +1,314 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load custom_tags %}
+
+{% block content %}
+
+    <section class="tw-w-full tw-min-h-[100vh]  tw-max-w-[100vw]
+                        tw-flex tw-flex-col tw-overflow-hidden tw-relative"
+                        id="hero-section"
+                        >
+            
+            <div class="tw-w-full tw-h-full tw-p-[5%]
+                        tw-place-content-center tw-min-h-[100vh]
+                        tw-justify-around tw-place-items-center
+                        tw-flex max-lg:tw-flex-col">
+
+                <div class="tw-flex tw-flex-col tw-place-content-center tw-max-w-[650px] tw-min-w-[550px] 
+                            max-md:tw-min-w-[300px]">
+                    <h1 class="tw-text-6xl tw-font-semibold tw-uppercase 
+                            tw-leading-normal max-md:tw-text-5xl max-md:tw-leading-[70px]">
+                        Supercharge your Django 
+                        apps with Templates 🚀
+                    </h1>
+                    <div class="tw-mt-5 tw-p-2 tw-text-justify max-md:tw-max-w-full">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi consequuntur provident, aperiam blanditiis quia quae fugit commodi aliquam fugiat earum repellendus impedit ex perspiciatis iste a, sint possimus cupiditate odio? Delectus, recusandae! Iure porro illum sint labore, expedita inventore sapiente fugit, consectetur totam nemo temporibus sunt eligendi, odio esse!
+                    </div>
+                    
+                    <a href="https://github.com/PaulleDemon/Django-website-template" 
+                                        class="btn tw-mt-5 tw-ml-auto 
+                                                tw-duration-[0.3s]
+                                                tw-transition-transform
+                                                hover:tw-translate-x-2
+                                                ">
+                        <span>Get started</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="tw-max-w-[750px] 
+                            tw-place-content-center
+                            tw-place-items-center
+                            tw max-md:!tw-mt-10">
+                    <div class="tw-rounded-lg tw-overflow-clip tw-shadow-xl ">
+                        <img src="{% static './assets/images/home/dashboard.png' %}" 
+                                alt="dashboard" class="tw-w-full tw-h-full">
+                    </div>
+                    <div class="tw-mt-5 tw-p-2 tw-text-justify tw-text-2xl">
+                        Code Less. Deliver More
+                    </div>
+                </div>
+
+            </div>
+        
+    </section>
+
+
+    <section class="tw-w-full  tw-max-w-[100vw]
+                    tw-flex tw-flex-col tw-overflow-hidden tw-relative 
+                    tw-place-items-center
+                    tw-place-content-center
+                    tw-p-6
+                    "
+                    >
+
+        <h2 class="tw-text-5xl max-md:tw-text-3xl">Features made for perfect delivery</h2>
+
+        <div class="tw-flex max-lg:tw-flex-col tw-w-full tw-gap-8 
+                    tw-place-content-center tw-mt-10 tw-p-4
+                    tw-place-items-center
+                    ">
+
+            <div class="tw-w-[250px] tw-h-[250px] 
+                        tw-flex tw-flex-col tw-shadow-xl
+                        tw-rounded-lg
+                        tw-place-content-center tw-place-items-center
+                        ">
+                <i class="bi bi-cloud-upload-fill 
+                            tw-text-[#2c2a2a]
+                            tw-text-6xl"></i>
+                <h3 class="tw-text-xl tw-mt-5">Production ready</h2>
+            </div>   
+            <div class="tw-w-[250px] tw-h-[250px] 
+                        tw-flex tw-flex-col tw-shadow-xl
+                        tw-rounded-lg
+                        tw-place-content-center tw-place-items-center
+                        ">
+                <i class="bi bi-phone-fill 
+                        tw-text-[#2c2a2a]
+                            tw-text-6xl"></i>
+                <h3 class="tw-text-xl tw-text-center tw-mt-5">Responsive UI</h2>
+            </div>  
+            <div class="tw-w-[250px] tw-h-[250px] 
+                        tw-flex tw-flex-col tw-shadow-xl
+                        tw-rounded-lg
+                        tw-place-content-center tw-place-items-center
+                        ">
+                <i class="bi bi-database-fill 
+                        tw-text-[#2c2a2a]
+                            tw-text-6xl"></i>
+                <h3 class="tw-text-xl tw-text-center tw-mt-5">
+                    Postgres / Sqlite <br> Database
+                </h2>
+            </div>    
+
+            <div class="tw-w-[250px] tw-h-[250px] 
+                        tw-flex tw-flex-col tw-shadow-xl
+                        tw-rounded-lg
+                        tw-place-content-center tw-place-items-center
+                        ">
+                <i class="bi bi-google
+                        tw-text-[#2c2a2a]
+                            tw-text-6xl"></i>
+                <h3 class="tw-text-xl tw-text-center tw-mt-5">SEO optimization</h2>
+            </div>   
+
+        </div>
+
+    </section>
+
+    <section class="tw-w-full tw-flex 
+                    tw-place-content-center 
+                    tw-px-[10%]
+                    tw-p-4
+                    tw-gap-[10%]
+                    tw-place-items-center
+                    max-md:tw-flex-col
+                    tw-overflow-hidden
+                    "
+                    >
+        <div class="tw-flex tw-flex-col tw-place-items-center tw-gap-2">
+            <h3 class="tw-text-4xl max-md:tw-text-3xl">Make it yours</h3>
+            <a class="btn tw-mt-4 tw-rounded-xl hover:tw-scale-[1.05] tw-duration-[0.3s]"
+                href="https://github.com/PaulleDemon/Django-website-template"
+            >
+                Get now!
+            </a>
+        </div>
+    </section>
+
+    <section class="tw-mt-5 tw-w-full tw-flex tw-flex-col tw-p-[5%]
+                     tw-place-items-center">
+
+        <h2 class="tw-text-3xl max-md:tw-text-xl primary-text-color tw-font-medium">
+            What some of our clients say
+        </h2>
+        
+        <div class="tw-mt-[5%] tw-flex tw-w-full tw-place-content-center tw-gap-[5%]">
+
+            <div class="review-container tw-flex tw-flex-col">
+                <div class="tw-flex tw-h-[150px] tw-max-w-[550px]">
+                    <div class="slides fade tw-text-lg max-md:tw-text-base tw-text-justify">
+                        <q class="tw-italic tw-text-gray-600">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, culpa?
+                        </q>
+                        <div class="tw-mt-2 tw-text-yellow-400">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="tw-mt-3">- Trich B</p>
+                    </div>
+                
+                    <div class="slides fade tw-text-lg max-md:tw-text-base tw-text-justify">
+                        <q class="tw-italic tw-text-gray-600 ">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet aspernatur optio deleniti soluta atque esse explicabo suscipit totam repudiandae voluptate.
+                        </q>
+                        <div class="tw-mt-2 tw-text-yellow-400">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="tw-mt-3">- Bára Müllerová</p>
+                    </div>
+
+                    <div class="slides fade tw-text-lg max-md:tw-text-base tw-text-justify">
+                        
+                        <q class="tw-italic tw-text-gray-600 ">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, ad.
+                        </q>
+                        <div class="tw-mt-2 tw-text-yellow-400">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="tw-mt-3">- Matt freeman</p>
+
+                    </div>
+                </div>
+              
+                <!-- Navigation dots -->
+                <div class="dots-container tw-mt-auto">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+
+    
+       
+    </section>
+
+    <section class="tw-w-full tw-flex 
+                    tw-flex-col
+                    tw-place-content-center 
+                    tw-px-[10%]
+                   
+                    tw-gap-[10%]
+                    tw-place-items-center
+                    ">
+
+        <div class="tw-w-full tw-place-content-center 
+                    tw-flex tw-flex-col tw-gap-3
+                    tw-place-items-center
+                    ">
+
+            <h2 class="tw-text-3xl max-md:tw-text-2xl primary-text-color">Special Newsletter signup</h2>
+            <h2 class="tw-text-xl max-md:tw-text-lg">Get to know about our future templates</h2>
+            
+            {% comment %} {% include "html/newsletter/form.html" %} {% endcomment %}
+
+            <div class="input tw-flex tw-h-[50px]  tw-p-2 
+                            tw-overflow-hidden tw-place-items-center ">
+                            
+                <input type="email" class="tw-w-full tw-h-full tw-bg-transparent tw-outline-none tw-px-3"
+                        placeholder="email"
+                        name="email"
+                        required
+                    >
+                
+                <button class="btn tw-h-[35px] 
+                            
+                            tw-duration-[0.3s]
+                            tw-transition-colors
+                            " 
+                            type="submit"
+                            >
+                    Signup
+                </button>   
+            </div>
+        </div>
+
+    </section>
+
+    <div class="tw-fixed
+                tw-top-[50%] tw-translate-y-[-50%]
+                tw-left-[50%] tw-translate-x-[-50%]
+                tw-w-[450px] tw-max-h-[450px] 
+                max-md:tw-w-[350px]
+                tw-z-40
+                tw-p-3
+                tw-hidden
+                tw-flex 
+                tw-flex-col
+                tw-rounded-md
+                tw-shadow-2xl
+                tw-bg-white"
+                id="modal"
+                >
+        {% comment %} feedback modal {% endcomment %}
+        <div class="tw-w-full tw-relative tw-h-[40px]">
+            <button class="tw-text-4xl 
+                            bi bi-x
+                            tw-absolute
+                            tw-right-2
+                            "
+                    id="modal-close"
+                            >
+        </div>
+        </button>
+        <h2 class="tw-text-2xl tw-text-center tw-mt-[5%]" 
+                id="modal-title"></h2>
+
+        <div class="tw-text-base tw-font-normal tw-mt-2" 
+                id="modal-description">
+        </div>
+
+        <textarea id="modal-input" 
+                placeholder="write..."
+                maxlength="2000"
+                class="input tw-w-full 
+                        tw-hidden
+                        tw-mt-2
+                        tw-resize-y 
+                        tw-text-base
+                        tw-font-normal
+                        tw-min-h-[50px]
+                        tw-max-h-[150px]"></textarea>
+
+        <div class="tw-w-full tw-flex tw-place-content-center tw-mt-3">
+            <a href="#" class="btn tw-text-sm tw-cursor-pointer" id="modal-action-btn">
+                Open
+            </a>
+        </div>
+        
+    </div>
+    
+{% endblock content %}
+
+{% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" integrity="sha512-rd0qOHVMOcez6pLWPVFIv7EfSdGKLt+eafXh4RO/12Fgr41hDQxfGvoi1Vy55QIVcQEujUE1LQrATCLl2Fs+ag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <script src="{% static "./js/home.js" %}"></script>
+
+{% endblock scripts %}

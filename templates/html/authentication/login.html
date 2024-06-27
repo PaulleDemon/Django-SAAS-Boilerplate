@@ -1,0 +1,55 @@
+{% extends "./base.html" %}
+
+{% load custom_tags %}
+{% load tz %}
+{% load static %}
+
+
+
+{% block title %}Guest login{% endblock title %}
+{% block description %}Guest login{% endblock description %}
+
+{% block content %}
+    <div class="tw-bg-white tw-text-black tw-fixed tw-top-0 tw-z-[5000] 
+                    tw-flex tw-place-content-center 
+                    tw-place-items-center tw-h-full tw-w-full">
+        
+
+        <form action="{% url "guest-login" %}{% if next_url %}?next={{next_url}}{% endif %}" class="tw-w-[350px] tw-min-h-[250px] tw-bg-white
+                        tw-rounded-lg tw-p-5 tw-text-center tw-flex tw-flex-col tw-gap-3 tw-shadow-xl
+                        tw-place-content-center max-md:tw-w-full tw-place-items-center
+                        "
+                    id="login-form"
+                    method="POST"
+            >   
+                {% comment %} <a type="button" class="btn-close" aria-label="Close"  href="{% url "home" %}"></a> {% endcomment %}
+                {% csrf_token %}
+                <div class="tw-text-3xl tw-mb-[5%] tw-m-2">
+                    Guest Login
+                </div>
+                <div class="tw-text-sm">
+                    This is only for approved guest, if you haven't been approved yet, please visit 
+                    <a href="{% url "home" %}" style="color: #3896be" >home page</a>
+                </div>
+                <div id="login-alert" class="{% if not error%} tw-hidden {% endif %}
+                                    error-container" role="alert" >
+                    {{error}}
+                </div>
+                <div class="tw-flex tw-w-full">
+                    <input type="text" class="input tw-w-full"
+                        placeholder="email" name="email" on maxlength="2000" autofocus>
+                </div>
+                
+                <div class="tw-flex tw-w-full">
+                    <input type="password" class="input tw-w-full"
+                        placeholder="password" name="password" maxlength="30" >
+                </div>
+                
+                <button type="submit" id="login-btn" class="btn tw-m-3">
+                    Login
+                </button>
+
+        </form>
+
+    </div>
+{% endblock content %}

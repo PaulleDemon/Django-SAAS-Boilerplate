@@ -1,0 +1,30 @@
+{% extends "../../html/base.html" %}
+
+{% comment %} success page {% endcomment %}
+
+{% load tz %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock title %}
+{% block description %}{{title}}{% endblock description %}
+
+{% block content %}
+
+    <div class="tw-w-full tw-h-[100vh] tw-place-content-center 
+                tw-place-items-center tw-flex tw-flex-col">
+
+        <h2 class="tw-text-3xl">
+            {{title}}
+        </h2>
+
+        <div class="tw-mt-4 tw-text-xl">
+            {{description}}
+        </div>
+
+        <a href="{% url "home" %}" class="btn tw-mt-6">
+            Go Home
+        </a>
+
+    </div>
+
+{% endblock content %}

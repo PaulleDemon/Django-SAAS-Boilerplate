@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% load tz %}
+{% load static %}
+
+{% load custom_tags %}
+
+{% block title %}{{blog.title}} | {% endblock title %}
+{% block description %}{{blog.meta_description}}{% endblock description %}
+
+{% block socialTitle %}{{blog.title}} | {% endblock socialTitle %}
+{% block socialDescription %}{{blog.meta_description}}{% endblock socialDescription %}
+{% block pageType %}article{% endblock pageType %}
+{% comment %} {% block pageLink %}{% endblock pageLink %} {% endcomment %}
+{% if blog.thumbnail %}
+    {% block pageImage %}{{ blog.thumbnail }}{% endblock pageImage %}
+{% endif %}
+
+{% block head_tags %}
+    {{ block.super }}
+    <link rel="stylesheet" id="highlightjs-light"  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/a11y-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="{% static "./css/blog/blog.css" %}">
+
+    <style>
+        figcaption{
+            display: none;
+        }
+    </style>
+
+{% endblock head_tags %}
+
+
+{% block content %}
+<div class="tw-flex tw-flex-col tw-h-full tw-w-full 
+            lg:tw-px-[30%] md:tw-px-[10%]
+            tw-place-items-center tw-p-4">
+
+    <div class="tw-text-4xl max-sm:tw-text-3xl tw-mt-6 tw-font-semibold tw-leading-snug tw-w-full">
+        <h1 class="tw-text-4xl max-sm:tw-text-3xl tw-font-semibold tw-leading-snug tw-w-full">{{blog.title}}</h1>
+    </div>
+    
+    <div class="tw-mt-6 tw-w-full tw-text-lg 
+                tw-text-justify tw-leading-relaxed" id="editor">
+            {{blog.body|safe}}
+    </div>
+
+    <div class="tw-m-2 tw-p-2 tw-min-w-[30px] tw-min-h-[80px] 
+                            tw-flex lg:tw-flex-col lg:tw-fixed 
+                            tw-place-content-center tw-justify-around 
+                            tw-mt-5
+                            md:tw-top-[10%] 
+                            md:tw-text-2xl
+                            max-sm:tw-text-xl 
+                            lg:tw-right-[10%] max-sm:tw-rounded-full">
+        <div class="tw-m-2 tw-cursor-pointer social-share-link" id="copy-link" aria-label="copy link">
+            <i class="bi bi-share"></i>
+        </div>
+        
+    </div>
+    
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static "./css/blog.css" %}">
+<script>
+
+    const copy_link = document.getElementById("copy-link")
+
+    copy_link.onclick = () => {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+            toastAlert(null, "Link copied")
+          }, function(err) {
+            callback_form_toast_body.innerText = `Error copying link`
+          })
+    }
+
+</script>
+<script src="{% static "./js/editor/blog-view.js" %}"></script>
+
+{% endblock scripts %}

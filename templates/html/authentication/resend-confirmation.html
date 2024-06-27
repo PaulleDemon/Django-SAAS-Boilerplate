@@ -1,0 +1,34 @@
+{% extends './base.html' %} 
+{% load static %} 
+{% block fullpage %}
+    <div class="tw-bg-white tw-fixed tw-top-0 tw-z-[5000] tw-flex tw-flex-col tw-place-content-center tw-items-center tw-h-full tw-w-full">
+
+        <form action="{% url "resend-verification" %}" method="POST" class="tw-rounded-md tw-shadow-lg tw-text-center 
+                                                                            tw-w-[350px] tw-h-[300px] tw-flex tw-flex-col
+                                                                            tw-gap-4 tw-place-content-center tw-p-3">
+            {% csrf_token %}
+            <div class="tw-text-lg">
+                Resend confirmation email
+            </div>
+
+            <div class="tw-text-sm">
+                type your registered email to resend confirmation email
+            </div>
+
+            <div class='alert alert-danger {% if not error %} tw-hidden  {% endif %}' id='resend-error'>
+                {{error}}
+            </div>
+            
+            {% if error %}
+                <a href="{% url "signup" %}" class="btn btn-success tw-text-lg">Register</a>
+            {% endif %}
+
+            <input type="email" name="email" id="email-resend" value="{{email}}" class="form-control"
+                     autofocus placeholder="email" oninput="checkEmailResend()">
+            <input type="submit" class="btn btn-primary" id="resend-email-btn" disabled value="Resend verification">
+
+            <a href="{% url "email-templates" %}" class="tw-underline tw-text-lg">Go home</a>
+        </form>
+    </div>
+    <script src="{% static "./js/authentication/authentication.js" %}"></script>
+{% endblock fullpage %}
