@@ -141,6 +141,11 @@
                         Login
                     </a>
                     <a href="{% url "signup" %}" class="btn !tw-p-2">Signup</a>
+                {% else %}
+                    <a href="" class="!tw-p-2">
+                        Go to dashboard
+                        <i class="bi bi-arrow-right"></i>
+                    </a>    
                 {% endif %}
             </div>
         </div>

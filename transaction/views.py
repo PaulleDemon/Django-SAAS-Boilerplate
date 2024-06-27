@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 
 from payments import get_payment_model, RedirectNeeded
 
+from utils.money import dollar_to_cents
+
 from .models import Plan
 
 Payment = get_payment_model()
@@ -16,23 +18,24 @@ Payment = get_payment_model()
 @require_http_methods(['POST'])
 def create_payment(request):
 
-    # Assuming you have some way of determining the amount and currency
-    amount = 5000  # Amount in cents
+    plan = request.POST.get("plan")
+
+    try:
+        plan = Plan.objects.get(id=int(plan))
+    
+    except (Plan.DoesNotExist, ValueError):
+        return render(request, "404.html", status=404)
+
+    amount = dollar_to_cents(plan.price)  # Amount in cents
     currency = 'usd'
 
     payment = Payment.objects.create(
         variant='stripe',  # This is the key in PAYMENT_VARIANTS
         total=amount,
         currency=currency,
-        description='Payment description',
-        billing_first_name='John',
-        billing_last_name='Doe',
-        billing_address_1='123 Street',
-        billing_address_2='',
-        billing_city='City',
-        billing_postcode='12345',
-        billing_country_code='US',
-        billing_email='customer@example.com'
+        description=plan.description  or '',
+        billing_email=request.user.email,
+        user=request.user
     )
 
     return redirect('payment', payment_id=payment.id)
