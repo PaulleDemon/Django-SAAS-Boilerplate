@@ -95,15 +95,17 @@ header > .collapsable-header{
 .input{
     padding: 10px;
     background-color: transparent;
-    /* border-radius: 10px; */
-    outline: none;
+    border-radius: 10px;
+    /* outline: none; */
     min-width: 100px;
-    border-bottom: 2px solid #090909;
+    border: 2px solid #818080;
     transition: border 0.3s;
 }
 
 .input:active, .input:focus, .input:focus-within{
-    border-bottom: 2px solid #0e0a92 !important;
+    /* border-bottom: 2px solid #0e0a92 !important; */
+    border: 2px solid #0c0c0c;
+
 }
 
 

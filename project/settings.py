@@ -17,9 +17,6 @@ import environ
  
 import dj_database_url
 from email.headerregistry import Address
-
-from django.templatetags.static import static
-from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from google.oauth2 import service_account
@@ -117,7 +114,7 @@ ANALYTICS_TAG_ID = env('GOOGLE_ANALYTICS') # for analytics tag on frontend
 
 AUTH_USER_MODEL = "user.User" 
 
-
+LOGIN_URL = '/user/login/'
 LOGIN_REDIRECT_URL = '/'
 
 TAILWIND_APP_NAME = 'styling'
@@ -141,11 +138,14 @@ if DEBUG:
 # Settings for Development
 PAYMENT_VARIANTS = {
     'stripe': (
-        'payments.stripe.StripeProviderV3',
+        # 'payments.stripe.StripeProviderV3',
+        'payments.stripe.StripeProvider',
         {
-            'api_key': env('STRIPE_TEST_API_KEY'),
-            'use_token': True,
-            'secure_endpoint': False,
+            # 'api_key': env('STRIPE_TEST_API_KEY'),
+            # 'use_token': True,
+            # 'secure_endpoint': False,
+            'secret_key': env('STRIPE_TEST_API_KEY'),
+            'public_key': env('STRIPE_PUB_TEST_KEY'),
             'endpoint_secret': env('STRIPE_WEBHOOK_TEST_API_KEY'),
         }
     )

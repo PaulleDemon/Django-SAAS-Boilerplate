@@ -38,8 +38,8 @@
                         placeholder="email" name="email" on maxlength="2000" autofocus>
                 </div>
                 
-                <div class="tw-flex tw-w-full">
-                    <input type="password" class="input tw-w-full"
+                <div class="tw-flex tw-w-full input !tw-p-[2px]">
+                    <input type="password" class="tw-w-full tw-p-[8px] tw-border-none tw-outline-none"
                         placeholder="password" name="password" maxlength="30" >
                 </div>
                 
@@ -49,6 +49,9 @@
                                                             ">
                     Login
                 </button>
+                <div>
+                    Don't have an account? <a href="{% url "signup" %}" class="tw-text-blue-500">Signup</a>
+                </div>
 
         </form>
 

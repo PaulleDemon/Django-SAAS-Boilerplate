@@ -27,5 +27,5 @@ def send_token(email):
     subject = f"Email confirmation link"
     message = f"""Hi {name},\nThanks for signing up. Follow the link to confirm your email {settings.DOMAIN}/user/email/verify/?token={token} \n\nregards, BrowseDocs Team"""
 
-    send_mail(subject, message, recipient_list=[email])
+    send_mail(subject, message, from_email=None, recipient_list=[email])
 

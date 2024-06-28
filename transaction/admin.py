@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import Plan, Transaction
 
-# Register your models here.
+
 @admin.register(Plan)
 class PlanAdmin(admin.ModelAdmin):
 
@@ -14,8 +14,13 @@ class PlanAdmin(admin.ModelAdmin):
 @admin.register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
 
-    list_display = ['transaction_id', 'user', 'plan', 'status', 'total']
+    list_display = ['id', 'transaction_id', 'user', 'plan', 'status', 'total']
 
-    search_fields = ['transaction_id']
+    search_fields = ['transaction_id', 'user__email']
 
-    list_filter = ['status', 'created']
+    list_filter = ['plan', 'status', 'created']
+
+    # def get_total(self, obj):
+    #     return f'${obj.get_total_dollars()}'
+    
+    # get_total.short_description = 'total'

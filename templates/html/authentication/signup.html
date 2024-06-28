@@ -29,18 +29,19 @@
                     Signup
                 </div>
              
-                <div id="signup-alert" class="{% if not error%} tw-hidden {% endif %}
+                <div id="signup-alert" class="{% if not errors%} tw-hidden {% endif %}
                                     error-container" role="alert" >
-                    {{error}}
+                    
+                    {{errors}}
                 </div>
                 <div class="tw-flex tw-w-full">
                     <input type="text" class="input tw-w-full"
                         placeholder="email" name="email" on maxlength="2000" autofocus>
                 </div>
                 
-                <div class="tw-flex tw-w-full">
-                    <input type="password" class="input tw-w-full"
-                        placeholder="password" name="password" maxlength="30" >
+                <div class="tw-flex tw-w-full input !tw-p-[2px]">
+                    <input type="password" class="tw-w-full tw-p-[8px] tw-border-none tw-outline-none"
+                        placeholder="password" name="password1" maxlength="30" >
                 </div>
                 
                 <button type="submit" id="signup-btn" class="btn !tw-w-[200px] 
@@ -50,6 +51,9 @@
                     Signup
                 </button>
 
+                <div>
+                    already have an account? <a href="{% url "login" %}" class="tw-text-blue-500">Login</a>
+                </div>
         </form>
 
     </div>
