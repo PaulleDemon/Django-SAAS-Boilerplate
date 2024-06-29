@@ -1,8 +1,8 @@
 # Django SAAS Boilerplate (production ready)
 Tired of writing Django project from scratch? use this django boilerplate to speed up your Django development and ship your product within few hours, instead of weeks or months.
 
-### Why use Django website boilerplate?
-Using a Django boilerplate can save you a lot of time, which is a huge benefit. Most customers don't care if you start from scratch or use a template; they just want their problem solved quickly. Whether you use Django or another framework usually doesn't matter to them as long as the job gets done efficiently.
+### Why use Django SAAS boilerplate?
+Using a Django saas boilerplate can save you a lot of time, which is a huge benefit. Most customers don't care if you start from scratch or use a template; they just want their problem solved quickly. Whether you use Django or another framework usually doesn't matter to them as long as the job gets done efficiently.
 
 This boilerplate can help you save hours of work, allowing you to launch your SAAS website in just a few hours.
 
@@ -26,11 +26,9 @@ This boilerplate can help you save hours of work, allowing you to launch your SA
 - Custom user model.
 - Tailwind css setup for rapid development (note: the tailwind classes are prefixed with `tw-`, to differentiate them)
 
-### Do I need to be an expert in Django to use this?
-A basic understanding of HTML, CSS, and JavaScript is all you need to get started. However, if you want to add custom pages or make more advanced modifications, having at least some foundational knowledge will be really helpful.
 
 ### Demo
-Visit the demo site: [Django Demo website]()
+Visit the demo site: [Django Demo website](https://django-saas-boilerplate.vercel.app/)
 
 For admin and login use.
 ```

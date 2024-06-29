@@ -154,12 +154,14 @@ PAYMENT_VARIANTS = {
  # Settings for Production
     # PAYMENT_VARIANTS = {
     #     'stripe': (
-    #         'payments.stripe.StripeProviderV3',
+    # #        'payments.stripe.StripeProviderV3',
+    #    'payments.stripe.StripeProvider',
     #         {
-    #             'api_key': env('STRIPE_PROD_API_KEY'),
     #             'use_token': True,
-    #             'endpoint_secret': env('STRIPE_WEBHOOK_PROD_API_KEY'),
     #             'secure_endpoint': True
+    #             'secret_key': env('STRIPE_TEST_API_KEY'),
+    #             'public_key': env('STRIPE_PUB_TEST_KEY'),
+    #              'endpoint_secret': env('STRIPE_WEBHOOK_TEST_API_KEY'),
     #         }
     #     )
     # }
@@ -185,7 +187,8 @@ if DEBUG:
     # EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 else: 
-    pass
+    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend' # This is only for development
+
     # uncomment below for production emailing
     # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # for production
 

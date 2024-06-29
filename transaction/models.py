@@ -35,7 +35,7 @@ class Plan(models.Model):
     def features_as_list(self):
         
         if self.features:
-            return self.features.replace(" ", "").split(",")
+            return [x.strip() for x in self.features.split(",")]
 
         return []
     
