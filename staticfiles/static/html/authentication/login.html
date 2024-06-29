@@ -1,4 +1,4 @@
-{% extends "./base.html" %}
+{% extends "base.html" %}
 
 {% load custom_tags %}
 {% load tz %}
@@ -6,17 +6,18 @@
 
 
 
-{% block title %}Guest login{% endblock title %}
-{% block description %}Guest login{% endblock description %}
+{% block title %}Login{% endblock title %}
+{% block description %}Login form{% endblock description %}
 
 {% block content %}
-    <div class="tw-bg-white tw-text-black tw-fixed tw-top-0 tw-z-[5000] 
+    <div class="tw-bg-[#fff9f9] tw-text-black tw-fixed tw-top-0 tw-z-[5000] 
                     tw-flex tw-place-content-center 
                     tw-place-items-center tw-h-full tw-w-full">
         
 
-        <form action="{% url "guest-login" %}{% if next_url %}?next={{next_url}}{% endif %}" class="tw-w-[350px] tw-min-h-[250px] tw-bg-white
-                        tw-rounded-lg tw-p-5 tw-text-center tw-flex tw-flex-col tw-gap-3 tw-shadow-xl
+        <form action="{% url "login" %}{% if next_url %}?next={{next_url}}{% endif %}" 
+                    class="tw-w-[350px] tw-min-h-[350px] tw-bg-white
+                        tw-rounded-xl tw-p-5 tw-text-center tw-flex tw-flex-col tw-gap-3 tw-shadow-xl
                         tw-place-content-center max-md:tw-w-full tw-place-items-center
                         "
                     id="login-form"
@@ -25,12 +26,9 @@
                 {% comment %} <a type="button" class="btn-close" aria-label="Close"  href="{% url "home" %}"></a> {% endcomment %}
                 {% csrf_token %}
                 <div class="tw-text-3xl tw-mb-[5%] tw-m-2">
-                    Guest Login
+                    Login
                 </div>
-                <div class="tw-text-sm">
-                    This is only for approved guest, if you haven't been approved yet, please visit 
-                    <a href="{% url "home" %}" style="color: #3896be" >home page</a>
-                </div>
+             
                 <div id="login-alert" class="{% if not error%} tw-hidden {% endif %}
                                     error-container" role="alert" >
                     {{error}}
@@ -40,14 +38,20 @@
                         placeholder="email" name="email" on maxlength="2000" autofocus>
                 </div>
                 
-                <div class="tw-flex tw-w-full">
-                    <input type="password" class="input tw-w-full"
+                <div class="tw-flex tw-w-full input !tw-p-[2px]">
+                    <input type="password" class="tw-w-full tw-p-[8px] tw-border-none tw-outline-none"
                         placeholder="password" name="password" maxlength="30" >
                 </div>
                 
-                <button type="submit" id="login-btn" class="btn tw-m-3">
+                <button type="submit" id="login-btn" class="btn !tw-w-[200px] 
+                                                            tw-m-3 hover:tw-scale-[1.02]
+                                                            tw-duration-[0.3s]
+                                                            ">
                     Login
                 </button>
+                <div>
+                    Don't have an account? <a href="{% url "signup" %}" class="tw-text-blue-500">Signup</a>
+                </div>
 
         </form>
 

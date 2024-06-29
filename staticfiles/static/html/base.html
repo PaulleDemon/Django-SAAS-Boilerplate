@@ -112,6 +112,9 @@
                 <a class="header-links" href="{% url "home" %}">
                     About us
                 </a>
+                <a class="header-links" href="{% url "pricing" %}">
+                    Pricing
+                </a>
                 <a class="header-links" href="{% url "blogs" %}"
                         rel="noreferrer"
                         >
@@ -129,40 +132,21 @@
                         max-lg:tw-w-full
                          max-lg:tw-place-items-start
                          ">
-                <a href="https://www.facebook.com/" 
-                        target="_blank" 
-                        rel="noreferrer"
-                        aria-label="facebook"
-                        class=" header-links
-                                tw-transition-colors
-                                tw-duration-[0.3s]
-                                "
-                        >
-                    <i class="bi bi-facebook"></i>
-                </a>
-
-                <a href="https://www.instagram.com/"
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="instagram"
-                        class="header-links
-                                tw-transition-colors
-                                tw-duration-[0.3s]
-                                "
-                            >
-                    <i class="bi bi-instagram"></i>
-                </a>
-                <a href="https://github.com/PaulleDemon"
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="github"
-                        class="header-links
-                                tw-transition-colors
-                                tw-duration-[0.3s]
-                                "
-                            >
-                    <i class="bi bi-github"></i>
-                </a>
+                {% if not request.user.is_authenticated %}
+                    <a href="{% url "login" %}" class="btn !tw-bg-transparent !tw-text-black !tw-py-[7px]
+                                                tw-border-2 tw-border-solid tw-border-black
+                                                hover:!tw-bg-black hover:!tw-text-white
+                                                tw-duration-[0.3s] tw-transition-colors
+                                                ">
+                        Login
+                    </a>
+                    <a href="{% url "signup" %}" class="btn !tw-p-2 hover:tw-scale-[1.05] tw-duration-[0.3s]">Signup</a>
+                {% else %}
+                    <a href="" class="!tw-p-2">
+                        Go to dashboard
+                        <i class="bi bi-arrow-right"></i>
+                    </a>    
+                {% endif %}
             </div>
         </div>
         <button class="tw-absolute tw-text-black tw-z-50 

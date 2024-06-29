@@ -13,8 +13,8 @@ function initializePasswordInputs(){
         // Create a toggle button
         const toggleButton = document.createElement('button');
 
-        toggleButton.classList.add("btn", "toggle-password");
-        toggleButton.innerHTML = '<i class="bi bi-eye-slash"></i>';
+        toggleButton.classList.add("tw-m-2", "toggle-password");
+        toggleButton.innerHTML = '<i class="bi bi-eye-slash tw-text-black"></i>';
         
         // Append the elements to the container
         container.appendChild(toggleButton);

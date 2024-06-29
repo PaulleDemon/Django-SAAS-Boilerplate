@@ -1,13 +1,16 @@
-{% extends './base.html' %} 
+{% extends 'base.html' %} 
 {% load static %} 
-{% block fullpage %}
+
+{% block content %}
     <div class="tw-bg-white tw-fixed tw-top-0 tw-z-[5000] tw-flex tw-flex-col tw-place-content-center tw-items-center tw-h-full tw-w-full">
 
+
+
         <form action="{% url "resend-verification" %}" method="POST" class="tw-rounded-md tw-shadow-lg tw-text-center 
-                                                                            tw-w-[350px] tw-h-[300px] tw-flex tw-flex-col
-                                                                            tw-gap-4 tw-place-content-center tw-p-3">
+                                                                            tw-w-[350px] tw-min-h-[300px] tw-flex tw-flex-col
+                                                                            tw-gap-4 tw-place-items-center tw-p-3">
             {% csrf_token %}
-            <div class="tw-text-lg">
+            <div class="tw-text-2xl">
                 Resend confirmation email
             </div>
 
@@ -15,20 +18,21 @@
                 type your registered email to resend confirmation email
             </div>
 
-            <div class='alert alert-danger {% if not error %} tw-hidden  {% endif %}' id='resend-error'>
-                {{error}}
+            <div  class="{% if not error%} tw-hidden {% endif %}
+                                    error-container" role="alert" >
+                    {{error}}
             </div>
-            
             {% if error %}
                 <a href="{% url "signup" %}" class="btn btn-success tw-text-lg">Register</a>
             {% endif %}
 
-            <input type="email" name="email" id="email-resend" value="{{email}}" class="form-control"
-                     autofocus placeholder="email" oninput="checkEmailResend()">
-            <input type="submit" class="btn btn-primary" id="resend-email-btn" disabled value="Resend verification">
+            <input type="email" name="email" id="email-resend" value="{{email}}" class="input tw-w-full"
+                     autofocus placeholder="email" required>
 
-            <a href="{% url "email-templates" %}" class="tw-underline tw-text-lg">Go home</a>
+            <input type="submit" class="btn tw-m-3 hover:tw-scale-[1.02]
+            tw-duration-[0.3s]" id="resend-email-btn" value="Resend verification">
+
+            <a href="{% url "home" %}" class="tw-underline tw-text-lg">Go home</a>
         </form>
     </div>
-    <script src="{% static "./js/authentication/authentication.js" %}"></script>
-{% endblock fullpage %}
+{% endblock content %}

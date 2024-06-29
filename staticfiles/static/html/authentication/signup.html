@@ -1,69 +1,60 @@
-{% extends './base.html' %} 
-{% load static %} 
-{% block fullpage %}
-    <div class="tw-bg-white tw-fixed tw-top-0 tw-z-[5000] tw-flex tw-place-content-center tw-items-center tw-h-full tw-w-full">
-        <div class="max-md:tw-hidden tw-max-w-[30%] tw-flex 
-        tw-h-[80%] tw-p-4 tw-rounded-3xl
-            lg:tw-ml-[20%]
-            tw-overflow-hidden ">
-            <img src="{% static "./assets/images/signup-illustration.svg" %}" class="tw-w-full" alt="" srcset="">
-        </div>
+{% extends "base.html" %}
+
+{% load custom_tags %}
+{% load tz %}
+{% load static %}
+
+
+
+{% block title %}Signup{% endblock title %}
+{% block description %}Signup form{% endblock description %}
+
+{% block content %}
+    <div class="tw-bg-[#fff9f9] tw-text-black tw-fixed tw-top-0 tw-z-[5000] 
+                    tw-flex tw-place-content-center 
+                    tw-place-items-center tw-h-full tw-w-full">
         
-        <form action="{% url "signup" %}" method="post"
-            class="tw-w-[350px] tw-min-h-[250px] tw-h-max tw-bg-white
-            tw-rounded-lg tw-p-3 tw-text-center tw-flex tw-flex-col tw-gap-3 max-md:tw-shadow-lg
-            lg:tw-ml-auto lg:tw-mr-[20%]
-            "
-        >
-            {% csrf_token %}
-            <div class="tw-w-[350px] tw-min-h-[250px] tw-h-max tw-bg-white
-                        tw-rounded-lg tw-p-3 tw-text-center tw-flex tw-flex-col tw-gap-3"
-                    id="create-account-form"
-            
+
+        <form action="{% url "signup" %}" 
+                    class="tw-w-[350px] tw-min-h-[350px] tw-bg-white
+                        tw-rounded-xl tw-p-5 tw-text-center tw-flex tw-flex-col tw-gap-3 tw-shadow-xl
+                        tw-place-content-center max-md:tw-w-full tw-place-items-center
+                        "
+                    id="signup-form"
+                    method="POST"
             >   
-                {% comment %} <a type="button" class="btn-close" aria-label="Close" href="{% url "home" %}"></a> {% endcomment %}
-                <div class="tw-text-3xl tw-m-2 tw-mb-[5%]">
-                    Create Account
+                {% comment %} <a type="button" class="btn-close" aria-label="Close"  href="{% url "home" %}"></a> {% endcomment %}
+                {% csrf_token %}
+                <div class="tw-text-3xl tw-mb-[5%] tw-m-2">
+                    Signup
                 </div>
-                <div class="tw-text-sm tw-m-2">
-                    You need to create account to create templates and send mail
+             
+                <div id="signup-alert" class="{% if not errors%} tw-hidden {% endif %}
+                                    error-container" role="alert" >
+                    
+                    {{errors}}
+                </div>
+                <div class="tw-flex tw-w-full">
+                    <input type="text" class="input tw-w-full"
+                        placeholder="email" name="email" on maxlength="2000" autofocus>
                 </div>
                 
-                    <div id="form-alert" class="{% if not errors %} tw-hidden {% endif %}
-                                                alert alert-danger" 
-                                                role="alert" 
-                                                aria-live="assertive" 
-                                                aria-atomic="true">
-                        {% for error in errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </div>
-                    <input type="email" name="email" id="email" class="form-control" 
-                        placeholder="email" maxlength="450" onchange="checkSignUp()" oninput="checkSignUp()" autofocus>
-                    
-                    <div class="input-group mb-3">
-                        <input type="password"  name="password1" id="password" class="form-control" 
-                            placeholder="password" maxlength="30" onchange="checkSignUp()" oninput="checkSignUp()">
-                    </div>        
+                <div class="tw-flex tw-w-full input !tw-p-[2px]">
+                    <input type="password" class="tw-w-full tw-p-[8px] tw-border-none tw-outline-none"
+                        placeholder="password" name="password1" maxlength="30" >
+                </div>
+                
+                <button type="submit" id="signup-btn" class="btn !tw-w-[200px] 
+                                                            tw-m-3 hover:tw-scale-[1.02]
+                                                            tw-duration-[0.3s]
+                                                            ">
+                    Signup
+                </button>
 
-                    <div class="form-check tw-text-sm tw-text-left tw-mt-2">
-                        <input class="form-check-input" onchange="checkSignUp()" type="checkbox" value="" id="terms-condition">
-                        <label class="form-check-label" for="terms-condition">
-                            You agree to <a href="{% url "t&c" %}" target="_blank" rel="noreferrer" class="tw-text-blue-600">terms and conditions</a> 
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn btn-success tw-m-3" id="create-account-btn" disabled>
-                        Create account
-                    </button>
-                <label class="form-check-label" for="server-save">
-                    Already a member <a href="{% url "login" %}" class="tw-text-blue-600 tw-underline">Login</a> 
-                </label>
-
-            </div>
-            
+                <div>
+                    already have an account? <a href="{% url "login" %}" class="tw-text-blue-500">Login</a>
+                </div>
         </form>
 
     </div>
-    <script src="{% static "./js/authentication/authentication.js" %}"></script>
-{% endblock fullpage %}
+{% endblock content %}

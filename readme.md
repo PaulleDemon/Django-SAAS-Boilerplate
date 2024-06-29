@@ -2,9 +2,11 @@
 Tired of writing Django project from scratch? use this django boilerplate to speed up your Django development and ship your product within few hours, instead of weeks or months.
 
 ### Why use Django website boilerplate?
-Using a Django boilerplate can save you a lot of time, which is a huge benefit. Most cistomers don't care if you start from scratch or use a template; they just want their problem solved quickly. Whether you use Django or another framework usually doesn't matter to them as long as the job gets done efficiently.
+Using a Django boilerplate can save you a lot of time, which is a huge benefit. Most customers don't care if you start from scratch or use a template; they just want their problem solved quickly. Whether you use Django or another framework usually doesn't matter to them as long as the job gets done efficiently.
 
-This boilerplate can help you save hours of work, allowing you to deliver your SAAS website in just a few hours.
+This boilerplate can help you save hours of work, allowing you to launch your SAAS website in just a few hours.
+
+**#CodeLessShipMore**
 
 ### What features does Django template include?
 - Production ready, you can immediately deploy this to cloud such as Railway.app, Render.com etc.
@@ -28,13 +30,17 @@ This boilerplate can help you save hours of work, allowing you to deliver your S
 A basic understanding of HTML, CSS, and JavaScript is all you need to get started. However, if you want to add custom pages or make more advanced modifications, having at least some foundational knowledge will be really helpful.
 
 ### Demo
-Visit the demo site: [Django Demo website](https://django-website-template.vercel.app/)
+Visit the demo site: [Django Demo website]()
 
-For admin use
+For admin and login use.
 ```
 demo@mail.com
 demo123*
 ```
+>[!NOTE]
+> You will not receive any email upon signup as its disabled, use the above account to login
+
+For testing stripe check out test cards: https://docs.stripe.com/testing
 
 ### Looking for basic website template?
 If you are a freelancer or agency building a non SAAS website check out other 
@@ -42,23 +48,21 @@ If you are a freelancer or agency building a non SAAS website check out other
 
 ### Table of contents
 
-- [Django website template (production ready)](#django-website-template-production-ready)
-  - [Why use Django website template?](#why-use-django-website-template)
-  - [What features does Django template include?](#what-features-does-django-template-include)
-  - [Do I need to be an expert in Django to use this?](#do-i-need-to-be-an-expert-in-django-to-use-this)
-  - [Demo](#demo)
-  
+
+- [Why use Django website boilerplate?](#why-use-django-website-boilerplate)
+- [What features does Django template include?](#what-features-does-django-template-include)
+- [Do I need to be an expert in Django to use this?](#do-i-need-to-be-an-expert-in-django-to-use-this)
+- [Demo](#demo)
+
 - [Local development](#local-development)
   - [Admin superuser](#admin-superuser)
+  - [changing example.com to localhost/yourdomain](#changing-examplecom-to-localhostyourdomain)
 - [Customizing](#customizing)
   - [Adding title, description to page](#adding-title-description-to-page)
+- [Payment - Stripe](#payment---stripe)
 - [Deployment:](#deployment)
-    - [Create a firebase credential file](#create-a-firebase-credential-file)
-    - [Deploying credential file to production](#deploying-credential-file-to-production)
-- [Images credits](#images-credits)
-
-
-
+  - [Create a firebase credential file](#create-a-firebase-credential-file)
+  - [Deploying credential file to production](#deploying-credential-file-to-production)
 
 
 ## Local development
@@ -116,6 +120,14 @@ FIREBASE_ENCODED=""
 CLOUD_PLATFORM="RAILWAY"
 
 GOOGLE_ANALYTICS="G-"
+
+STRIPE_TEST_API_KEY=""
+STRIPE_WEBHOOK_TEST_API_KEY=""
+STRIPE_PUB_TEST_KEY=""
+
+STRIPE_PROD_API_KEY=""
+STRIPE_WEBHOOK_PROD_API_KEY=""
+STRIPE_PUB_PROD_KEY=""
 ```
 
 7. Now in your terminal Create databases and Tables using
@@ -143,6 +155,12 @@ To create a admin superuser use the following in terminal
 python manage.py createsuperuser
 ```
 
+### changing example.com to localhost/yourdomain
+If you are sending reset email you may notice its being sent from example.com, inorder to 
+change that you need to go to admin dashboard and from sites, change to your domain
+
+![](demo/images/site-change.png)
+
 ## Customizing
 
 All html, css, js and assets lies inside the templates.
@@ -151,7 +169,7 @@ All html, css, js and assets lies inside the templates.
 - extend `base.html` to have the same footer and header.
 
 ### Adding title, description to page
-To add title to a page use the following tags
+To add title and meta tags to a page use the following tags
 ```py
 {% block title %}lorem impsum {% endblock title %}
 {% block description %}lorem impsum{% endblock description %} #meta description
@@ -174,13 +192,18 @@ To add scripts at the end of the elements
 {% endblock scripts %}
 ```
 
+### Payment - Stripe
+By default it is set up to use Stripe you can however change this to use other 
+payment gateways supported by stripe. 
+
+> [!CAUTION]  
+> Don't make payment to your self in production, as this goes against Stripe terms of use. Use only stripe test account for testing purposes.
+
+You can get the stripe test account secret key, public key and webhook key from stripe dashboard.
+
+* To forward webhook request to local development follow the stripe guide: https://docs.stripe.com/webhooks#local-listener
+
 ## Deployment:
-
-Deploy to vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPaulleDemon%2FDjango-website-template&demo-title=Django%20website%20template&demo-description=A%20starters%20template%20for%20django%20developers%2C%20freelancers%20and%20agencies&demo-url=https%3A%2F%2Fdjango-website-template.vercel.app%2F)
-
-or
 
 You can make use of Railway to deploy your own instance. 
 

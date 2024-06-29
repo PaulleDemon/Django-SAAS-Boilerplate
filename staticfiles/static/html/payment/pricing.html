@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Pricing{% endblock title %}
+{% block description %}Pricing for the SAAS{% endblock description %}
+
+{% block content %}
+<div class="tw-flex tw-flex-col tw-gap-2 tw-p-2 tw-mt-8 tw-place-content-center tw-place-items-center">
+    <h1 class="tw-text-5xl">Plans and pricing</h1>
+    <div class="tw-mt-5">
+        This is a sample pricing, the purchase won't be made.
+    </div>
+</div>
+
+<section class="tw-min-h-[50vh] tw-flex tw-mt-5 tw-gap-2 tw-place-content-center 
+                                max-md:tw-flex-col tw-place-items-center">
+    {% for plan in plans %}
+        <form action="{% url "create-payment" %}" method="POST">
+            {% csrf_token %}
+            <div class="tw-w-[300px] tw-rounded-lg tw-shadow-xl tw-place-items-center
+                        tw-min-h-[450px] tw-flex tw-flex-col tw-p-6">
+                <h2 class="tw-text-4xl">{{plan.name}}</h2>
+                <h3 class="tw-text-2xl tw-mt-2">$ {{plan.price|stringformat:'d'}}</h3>
+                <ul class="tw-flex tw-flex-col tw-gap-4 tw-text-lg tw-mt-4 tw-mb-2">
+                    {% for x in plan.features_as_list %}
+                        <li>
+                            <i class="bi bi-check-circle-fill tw-text-[#0d9622]"></i>
+                            &nbsp;
+                            <span>{{x}}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <input type="hidden" name="plan" value="{{plan.id}}">
+                <button type="submit" class="btn tw-mt-auto hover:tw-scale-[1.05] 
+                                        tw-duration-[0.3s] tw-transition-transform">
+                    Get started
+                </button>
+            </div>
+        </form>
+    {% endfor %}
+</section>
+
+{% endblock content %}
