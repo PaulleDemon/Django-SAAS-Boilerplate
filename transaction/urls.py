@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import (create_payment, pricing, payment_details, 
+from .views import (create_payment, pricing, 
                         payment_failed, payment_success)
 
 from .webhooks import stripe_webhook
@@ -8,7 +8,6 @@ from .webhooks import stripe_webhook
 urlpatterns = [
     path('pricing/', pricing, name='pricing'),
     path('create-payment/', create_payment, name='create-payment'),
-    # path('payment-details/<int:payment_id>/', payment_details, name='payment'),
     
 
     path('payment/failed/', payment_failed, name='payment-failed'),

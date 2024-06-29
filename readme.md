@@ -1,15 +1,19 @@
-# Django website template (production ready)
-Tired of writing Django project from scratch? use this template to speed up your Django development and deliver your project within few hours, instead of weeks or months.
+# Django SAAS Boilerplate (production ready)
+Tired of writing Django project from scratch? use this django boilerplate to speed up your Django development and ship your product within few hours, instead of weeks or months.
 
-### Why use Django website template?
-Using a Django template can save you a lot of time, which is a huge benefit. Most clients don't care if you start from scratch or use a template; they just want their problem solved quickly. Whether you use Django or another framework usually doesn't matter to them as long as the job gets done efficiently.
+### Why use Django website boilerplate?
+Using a Django boilerplate can save you a lot of time, which is a huge benefit. Most cistomers don't care if you start from scratch or use a template; they just want their problem solved quickly. Whether you use Django or another framework usually doesn't matter to them as long as the job gets done efficiently.
 
-This template can help you save hours of work, allowing you to deliver a production-ready website in just a few hours.
+This boilerplate can help you save hours of work, allowing you to deliver your SAAS website in just a few hours.
 
 ### What features does Django template include?
 - Production ready, you can immediately deploy this to cloud such as Railway.app, Render.com etc.
 - Comes with a landing page that you can modify.
 - Responsive design, forget about making things responsive yourself.
+- Pricing page
+- Default Stripe integration, just add your stripe keys and get started
+- Custom user model.
+- Login and Signup flow, including, verification email, resend token, password reset.
 - Contact us page.
 - 404 page
 - Has blog with Trix WYSIWYG editor built into the admin panel.
@@ -31,6 +35,11 @@ For admin use
 demo@mail.com
 demo123*
 ```
+
+### Looking for basic website template?
+If you are a freelancer or agency building a non SAAS website check out other 
+[Django boilerplate](https://github.com/PaulleDemon/Django-website-template)
+
 ### Table of contents
 
 - [Django website template (production ready)](#django-website-template-production-ready)

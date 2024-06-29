@@ -18,7 +18,7 @@
                 type your registered email to resend confirmation email
             </div>
 
-            <div id="login-alert" class="{% if not error%} tw-hidden {% endif %}
+            <div  class="{% if not error%} tw-hidden {% endif %}
                                     error-container" role="alert" >
                     {{error}}
             </div>
@@ -27,7 +27,7 @@
             {% endif %}
 
             <input type="email" name="email" id="email-resend" value="{{email}}" class="input tw-w-full"
-                     autofocus placeholder="email" oninput="checkEmailResend()">
+                     autofocus placeholder="email" required>
 
             <input type="submit" class="btn tw-m-3 hover:tw-scale-[1.02]
             tw-duration-[0.3s]" id="resend-email-btn" value="Resend verification">

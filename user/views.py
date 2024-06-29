@@ -3,25 +3,22 @@ import json
 
 from django.urls import reverse
 from django.conf import settings
+from django.contrib import messages
+from django.urls import reverse_lazy
+from django.core.mail import send_mail
+from django.utils.encoding import force_str
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.http import require_http_methods
-
+from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.messages.views import SuccessMessageMixin
 
 from .models import User
 from .forms import CustomUserCreationForm
 from utils.token_generator import send_token
 
-
-def o_auth_login(request):
-
-    return render(request, 'oAuth-login.html')
-
-
-# class CustomLoginView(LoginView):
-#     template_name = 'oAuth-login.html' 
 
 def login_view(request):
     next_url = request.GET.get('next', '')
@@ -144,3 +141,16 @@ def verify_email(request):
 
     except (jwt.DecodeError, Exception):
         return render(request, 'html/authentication/email-verification.html', context={'error': 'Unknown error occurred, request a new token'})
+    
+
+
+
+class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+    template_name = 'html/authentication/password-reset-request.html'
+    email_template_name = 'html/authentication/password-reset-email.html'
+    # subject_template_name = 'users/password_reset_subject'
+    success_message = "We've emailed you instructions for setting your password, " \
+                      "if an account exists with the email you entered. You should receive them shortly." \
+                      " If you don't receive an email, " \
+                      "please make sure you've entered the address you registered with, and check your spam folder."
+    success_url = reverse_lazy('password-reset')

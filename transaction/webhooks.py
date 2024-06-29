@@ -12,6 +12,8 @@ stripe.api_key = settings.PAYMENT_VARIANTS['stripe'][1]['secret_key']
 
 STRIPE_WEBHOOK_SECRET = settings.PAYMENT_VARIANTS['stripe'][1]['endpoint_secret']
 
+# https://docs.stripe.com/webhooks#local-listener
+
 @require_POST
 @csrf_exempt
 def stripe_webhook(request):
@@ -35,6 +37,7 @@ def stripe_webhook(request):
     data = event['data']['object']
 
     # Handle the even
+    print("Faield: ", event['type'], event)
     
     if event['type'] == 'checkout.session.completed':
         subscription = Transaction.objects.get(transaction_id=data['id'])
@@ -44,7 +47,19 @@ def stripe_webhook(request):
         subscription.customer_id = data['customer']
         subscription.save()
 
-    if event['type'] == 'invoice.payment_succeeded':
+    if event['type'] == 'checkout.session.expired':
+        subscription = Transaction.objects.get(transaction_id=data['id'])
+        subscription.status = PaymentStatus.REJECTED
+        subscription.save()
+
+    elif event['type'] == "charge.failed":
+        pass
+
+    elif event['type'] == 'invoice.payment_succeeded':
+        # Payment succeeded
+        pass
+    
+    elif event['type'] == 'invoice.payment_failed':
         # Payment succeeded
         pass
 

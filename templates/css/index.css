@@ -141,6 +141,17 @@ header > .collapsable-header{
     list-style: circle;
 }
 
+.message-container{
+    /* container used to display message */
+    border: 3px solid #c6e1f5;
+    background-color: #d7edf8;
+    color: #043893;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 5px;
+    min-height: 50px;
+    padding: 5px 10px;
+}
 
 /* Slideshow container */
 .slideshow-container {
