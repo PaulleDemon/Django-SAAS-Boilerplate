@@ -1,3 +1,4 @@
+from typing import Any
 from django.contrib import admin
 
 from .models import Plan, Transaction
@@ -10,6 +11,14 @@ class PlanAdmin(admin.ModelAdmin):
 
     search_fields = ['name']
 
+    def get_form(self, request: Any, *args, **kwargs) -> Any:
+        form = super().get_form(request, *args, **kwargs)
+
+        if "features" in form.base_fields:
+            form.base_fields["features"].help_text = "Separate features with a comma (eg: feature1, feature2)"
+
+
+        return form
 
 @admin.register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
