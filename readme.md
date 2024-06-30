@@ -1,5 +1,6 @@
 # Django SaaS Boilerplate (production ready)
-Tired of writing Django project from scratch? use this django boilerplate to speed up your Django development and ship your product within few hours, instead of weeks or months.
+Focus on building your core functionality, skip writing repetitive code. Comes packed with landing page, 
+Payment integration, blog, sitemap and more.
 
 ### Why use Django SaaS boilerplate?
 Using a Django saas boilerplate can save you a lot of time, which is a huge benefit. Most customers don't care if you start from scratch or use a template; they just want their problem solved quickly. Whether you use Django or another framework usually doesn't matter to them as long as the job gets done efficiently.
@@ -7,6 +8,11 @@ Using a Django saas boilerplate can save you a lot of time, which is a huge bene
 This boilerplate can help you save hours of work, allowing you to focus on core functionality of your  SaaS instead of spending a lot of time on setting up stripe, blog, login functionalities and landing page.
 
 **#CodeLessShipMore**
+
+### who is this boilerplate suitable for?
+* People focused on creating MVP and want to ship faster.
+* Reduce repetitive parts and focus on functionality.
+* Learning Django
 
 ### What features does Django template include?
 - Production ready, you can immediately deploy this to cloud such as Railway.app, Render.com etc.
@@ -67,10 +73,10 @@ If you are a freelancer or agency building a non SAAS website check out other
 ## Local development
 
 follow the below steps :
-1. Star the repo: https://github.com/PaulleDemon/Django-website-template
+1. Star the repo: https://github.com/PaulleDemon/Django-SAAS-Boilerplate
    
 2. Clone the repo
-`git clone https://github.com/PaulleDemon/Django-website-template`
+`git clone https://github.com/PaulleDemon/Django-SAAS-Boilerplate`
 
 3. Install python 3.8 or above.
 https://www.python.org/downloads/
