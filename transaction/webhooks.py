@@ -37,8 +37,6 @@ def stripe_webhook(request):
     data = event['data']['object']
 
     # Handle the even
-    print("Faield: ", event['type'], event)
-    
     if event['type'] == 'checkout.session.completed':
         subscription = Transaction.objects.get(transaction_id=data['id'])
         subscription.status = PaymentStatus.CONFIRMED
@@ -50,6 +48,12 @@ def stripe_webhook(request):
     if event['type'] == 'checkout.session.expired':
         subscription = Transaction.objects.get(transaction_id=data['id'])
         subscription.status = PaymentStatus.REJECTED
+        subscription.save()
+
+    elif event['type'] == 'customer.subscription.deleted':
+        # Subscription deleted
+        subscription = Transaction.objects.get(stripe_subscription_id=event['data']['object']['subscription'])
+        subscription.subscription_status = SUBSCRIPTION_STATUS.CANCELLED
         subscription.save()
 
     elif event['type'] == "charge.failed":
@@ -64,18 +68,15 @@ def stripe_webhook(request):
         pass
 
     elif event['type'] == 'customer.subscription.trial_will_end':
-        print('Subscription trial will end')
+        # print('Subscription trial will end')
+        pass
     
     elif event['type'] == 'customer.subscription.created':
-        print('Subscription created %s', event.id)
+        # print('Subscription created %s', event.id)
+        pass
     
     elif event['type'] == 'customer.subscription.updated':
-        print('Subscription created %s', event.id)
-
-    elif event['type'] == 'customer.subscription.deleted':
-        # Subscription deleted
-        subscription = Transaction.objects.get(stripe_subscription_id=event['data']['object']['subscription'])
-        subscription.subscription_status = SUBSCRIPTION_STATUS.CANCELLED
-        subscription.save()
+        # print('Subscription created %s', event.id)
+        pass
 
     return JsonResponse({'status': 'success'}, status=200)

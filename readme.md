@@ -1,10 +1,10 @@
-# Django SAAS Boilerplate (production ready)
+# Django SaaS Boilerplate (production ready)
 Tired of writing Django project from scratch? use this django boilerplate to speed up your Django development and ship your product within few hours, instead of weeks or months.
 
-### Why use Django SAAS boilerplate?
+### Why use Django SaaS boilerplate?
 Using a Django saas boilerplate can save you a lot of time, which is a huge benefit. Most customers don't care if you start from scratch or use a template; they just want their problem solved quickly. Whether you use Django or another framework usually doesn't matter to them as long as the job gets done efficiently.
 
-This boilerplate can help you save hours of work, allowing you to launch your SAAS website in just a few hours.
+This boilerplate can help you save hours of work, allowing you to focus on core functionality of your  SaaS instead of spending a lot of time on setting up stripe, blog, login functionalities and landing page.
 
 **#CodeLessShipMore**
 
@@ -13,7 +13,8 @@ This boilerplate can help you save hours of work, allowing you to launch your SA
 - Comes with a landing page that you can modify.
 - Responsive design, forget about making things responsive yourself.
 - Pricing page
-- Default Stripe integration, just add your stripe keys and get started
+- Payment integration - Default Stripe integration, just add your stripe keys and get started
+- Recurring charges
 - Custom user model.
 - Login and Signup flow, including, verification email, resend token, password reset.
 - Contact us page.
@@ -157,7 +158,7 @@ python manage.py createsuperuser
 If you are sending reset email you may notice its being sent from example.com, inorder to 
 change that you need to go to admin dashboard and from sites, change to your domain
 
-![](demo/images/site-change.png)
+![site name](demo/images/site-change.png)
 
 ## Customizing
 
