@@ -40,7 +40,7 @@ class Plan(models.Model):
         return []
     
     def get_total_cents(self):
-        # converts  cents to dollars.
+        # converts  dollar to cents.
 
         return dollar_to_cents(self.price)
 

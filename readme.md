@@ -10,9 +10,10 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 **#CodeLessShipMore**
 
 ### who is this boilerplate suitable for?
-* People focused on creating MVP and want to ship faster.
 * Reduce repetitive parts and focus on functionality.
-* Learning Django
+* For people building an MVP(minimum viable product) and trying to ship as quickly as possible.
+* People looking to learn Django.
+* People who just finished building core functionality and are looking to integrate landing page, blog, payment etc.
 
 ### What features does Django template include?
 - Production ready, you can immediately deploy this to cloud such as Railway.app, Render.com etc.
@@ -51,8 +52,10 @@ For testing stripe check out test cards: https://docs.stripe.com/testing
 If you are a freelancer or agency building a non SAAS website check out other 
 [Django boilerplate](https://github.com/PaulleDemon/Django-website-template)
 
-### Table of contents
+### Looking to learn about adding payment to Django?
+Check out this blog about [adding payment to django](https://dev.to/paul_freeman/adding-payment-to-django-app-4cc9). This should give you an overview about adding payments to Django.
 
+### Table of contents
 
 - [Why use Django website boilerplate?](#why-use-django-website-boilerplate)
 - [What features does Django template include?](#what-features-does-django-template-include)
@@ -229,7 +232,10 @@ DEBUG=0
 **Generate secret key**
 To generate secret key use `from django.core.management.utils import get_random_secret_key` then `get_random_secret_key()` in your python shell
 
-**Note:** don't forget to set the sites to your domain instead of example.com in the admin panel
+**Note:** Don't forget to set the sites to your domain instead of example.com in the admin panel
+
+> [!NOTE]  
+> Make sure to add webhook endpoint during production via stripe, other wise you may not get the confirmations
 
 ### Create a firebase credential file
 
@@ -253,6 +259,8 @@ base64 firebase-cred.json > encoded.txt
 ```
 Now copy the contents of encoded.txt and paste it in `FIREBASE_ENCODED="wedde"` variable
 
+## Looking for Django developer to supercharge your development
+Contact [professional Django developer](https://templates.foxcraft.tech/django-developer)
 
 ## Images credits
 Images are taken from free to use sites such as 
