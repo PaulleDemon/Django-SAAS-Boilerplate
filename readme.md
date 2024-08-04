@@ -48,9 +48,13 @@ demo123*
 
 For testing stripe check out test cards: https://docs.stripe.com/testing
 
-### Looking for basic website template?
-If you are a freelancer or agency building a non SAAS website check out other 
-[Django boilerplate](https://github.com/PaulleDemon/Django-website-template)
+### Other templates
+**Basic non-saas website template:** [Django boilerplate](https://github.com/PaulleDemon/Django-website-template)
+
+**Free and opensource landing pages:** [Free landing pages](https://github.com/PaulleDemon/awesome-landing-pages)
+
+### Django developer
+Looking for django developer to supercharge your development? contact [here](https://tally.so/r/woO0Kx)
 
 ### Looking to learn about adding payment to Django?
 Check out this blog about [adding payment to django](https://dev.to/paul_freeman/adding-payment-to-django-app-4cc9). This should give you an overview about adding payments to Django.
@@ -258,9 +262,6 @@ So convert the credential file to base64 using
 base64 firebase-cred.json > encoded.txt
 ```
 Now copy the contents of encoded.txt and paste it in `FIREBASE_ENCODED="wedde"` variable
-
-## Looking for Django developer to supercharge your development
-Contact [professional Django developer](https://templates.foxcraft.tech/django-developer)
 
 ## Images credits
 Images are taken from free to use sites such as 
