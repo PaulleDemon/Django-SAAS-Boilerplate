@@ -19,6 +19,7 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 - Comes with a landing page that you can modify.
 - Responsive design, forget about making things responsive yourself.
 - Pricing page
+- Postgres DB ready
 - ESP - use transactional emails at scale
 - Modern admin - uses unfold admin module.
 - Payment integration - Default Stripe integration, just add your stripe keys and get started
