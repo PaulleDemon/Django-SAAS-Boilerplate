@@ -97,7 +97,7 @@ enviornment is optional, but recommended)
 pip install -r requirements.txt
 ```
 
-6. Add a `.env` file inside the project folder with the following
+6. Add a `.env` file inside the `project` folder with the following
 ```py
 DEBUG=1
 PYTHON_VERSION=3.10
