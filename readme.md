@@ -19,6 +19,8 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 - Comes with a landing page that you can modify.
 - Responsive design, forget about making things responsive yourself.
 - Pricing page
+- ESP - use transactional emails at scale
+- Modern admin - uses unfold admin module.
 - Payment integration - Default Stripe integration, just add your stripe keys and get started
 - Recurring charges
 - Custom user model.
@@ -27,12 +29,11 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 - 404 page
 - Has blog with Trix WYSIWYG editor built into the admin panel.
 - Technical SEO optimization.
-- ESP - use transactional emails at scale
-- Modern admin - uses unfold admin module.
 - Dynamic Sitemap.xml
 - Robots.txt
 - Google analytics
 - Custom user model.
+- Django storages integration (default Google Object storage)
 - Tailwind css setup for rapid development (note: the tailwind classes are prefixed with `tw-`, to differentiate them)
 
 
@@ -55,7 +56,7 @@ For testing stripe check out test cards: https://docs.stripe.com/testing
 **Free and opensource landing pages:** [Free landing pages](https://github.com/PaulleDemon/awesome-landing-pages)
 
 ### Django developer
-I fund open-source by providing custom works, so if you are looking for django developer to supercharge your development? contact [here](https://tally.so/r/woO0Kx)
+I fund open-source by providing custom works, so if you are looking for django developer to supercharge your development contact [here](https://tally.so/r/woO0Kx)
 
 ### Table of contents
 
