@@ -417,12 +417,12 @@ UNFOLD = {
                 "items": [
                     {
                         "title": _("Plan"),
-                        "icon": "person",
+                        "icon": "description",
                         "link": reverse_lazy("admin:transaction_plan_changelist"),
                     },
                     {
                         "title": _("Transactions"),
-                        "icon": "group",
+                        "icon": "payments",
                         "link": reverse_lazy("admin:transaction_transaction_changelist"),
                     },
                 ],
