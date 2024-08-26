@@ -15,7 +15,7 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 * People who just finished building core functionality and are looking to integrate landing page, blog, payment etc.
 
 ### What features does Django template include?
-- Production ready, you can immediately deploy this to cloud such as Railway.app, Render.com etc.
+- Production ready, you can immediately deploy this to cloud such as Vercel, Railway.app, Render.com etc.
 - Comes with a landing page that you can modify.
 - Responsive design, forget about making things responsive yourself.
 - Pricing page
@@ -269,6 +269,8 @@ Now copy the contents of encoded.txt and paste it in `FIREBASE_ENCODED="wedde"` 
   #### Adding ESP
   Check out this blog on adding ESP to help you supercharge [transactional emails](https://dev.to/paul_freeman/adding-esp-to-supercharge-your-django-email-4jkp)
 
+  #### Deploying to Vercel
+  Check out this blog for vercel deployment help [Django vercel deployment](https://dev.to/paul_freeman/deploying-django-website-to-vercel-19ed)
 
 ## Images credits
 Images are taken from free to use sites such as 
