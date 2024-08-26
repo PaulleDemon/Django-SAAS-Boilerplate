@@ -412,7 +412,7 @@ UNFOLD = {
                 ],
             },
             {
-                "title": _("Transactions and payments"),
+                "title": _("Plans and Transactions"),
                 "separator": True,
                 "items": [
                     {
@@ -421,7 +421,7 @@ UNFOLD = {
                         "link": reverse_lazy("admin:transaction_plan_changelist"),
                     },
                     {
-                        "title": _("Groups"),
+                        "title": _("Transactions"),
                         "icon": "group",
                         "link": reverse_lazy("admin:transaction_transaction_changelist"),
                     },
