@@ -1,11 +1,12 @@
 from typing import Any
 from django.contrib import admin
 
+from unfold.admin import ModelAdmin
+
 from .models import Plan, Transaction
 
-
 @admin.register(Plan)
-class PlanAdmin(admin.ModelAdmin):
+class PlanAdmin(ModelAdmin):
 
     list_display = ['name', 'description', 'price']
 
@@ -21,7 +22,7 @@ class PlanAdmin(admin.ModelAdmin):
         return form
 
 @admin.register(Transaction)
-class TransactionAdmin(admin.ModelAdmin):
+class TransactionAdmin(ModelAdmin):
 
     list_display = ['id', 'transaction_id', 'user', 'plan', 'status', 'total']
 
