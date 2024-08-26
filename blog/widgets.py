@@ -3,6 +3,7 @@ from django.forms.utils import flatatt
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 from django.forms.renderers import get_default_renderer
+from unfold.contrib.forms.widgets import WysiwygWidget
 
 
 class JSPath:
@@ -43,6 +44,10 @@ class CSSAdminCode:
                     display: block !important;
                 }
 
+                .trix-button-row{
+                    zindex: 10 !important;
+                }
+                
                 trix-toolbar .trix-button {
                     background-color: #d1d1d1 !important;
                 }
@@ -53,6 +58,9 @@ class CSSAdminCode:
                     margin: 0;
                     background: transparent;
                     color: var(--body-fg);
+                }
+                trix-editor figure {
+                    z-index: -1 !important;
                 }
             </style>
             """
@@ -79,3 +87,14 @@ class TrixEditorWidget(forms.Textarea):
 
     # def format_value(self, value):
     #     return ""
+
+
+class UnfoldTrix(WysiwygWidget):
+
+    class Media:
+        css = {"all": ("unfold/forms/css/trix.css", CSSAdminCode())}
+        js = (
+            "unfold/forms/js/trix.js",
+            "unfold/forms/js/trix.config.js",
+            "js/trix.js"
+        )

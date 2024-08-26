@@ -1,12 +1,16 @@
 from django.contrib import admin
+from django.db import models
 from django.utils.safestring import mark_safe
+
+from unfold.admin import ModelAdmin, StackedInline
+from unfold.contrib.forms.widgets import WysiwygWidget
 
 from .models import Blog, BlogImage
 
-from .widgets import TrixEditorWidget, CSSAdminCode
+from .widgets import CSSAdminCode, UnfoldTrix
 
 
-class InlineBlogImgAdmin(admin.StackedInline):
+class InlineBlogImgAdmin(StackedInline):
 
     model = BlogImage
     extra = 0
@@ -41,7 +45,7 @@ class JSReadonly:
 
 
 @admin.register(Blog)
-class BlogAdmin(admin.ModelAdmin):
+class BlogAdmin(ModelAdmin):
     
     inlines = [InlineBlogImgAdmin]
 
@@ -53,6 +57,12 @@ class BlogAdmin(admin.ModelAdmin):
     readonly_fields = ['blog_id', 'datetime',  'id', ]
 
     autocomplete_fields = ['user']
+
+    # formfield_overrides = {
+    #     models.TextField: {
+    #         "widget": WysiwygWidget,
+    #     }
+    # }
 
     # https://stackoverflow.com/questions/14832739/django-admin-how-to-display-widget-on-readonly-field
     
@@ -73,8 +83,10 @@ class BlogAdmin(admin.ModelAdmin):
         form = super().get_form(request, obj=obj, change=change, **kwargs)
         
         if "body" in form.base_fields:
-            form.base_fields["body"].widget = TrixEditorWidget()
-            form.base_fields["body"].help_text = "To upload files you must save your blog first"
+            # form.base_fields["body"].widget = TrixEditorWidget()
+            # form.base_fields["body"].widget = WysiwygWidget()
+            form.base_fields["body"].widget = UnfoldTrix()
+            form.base_fields["body"].help_text = "To upload images and files you must save your blog first"
         
         return form
 

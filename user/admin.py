@@ -4,6 +4,9 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from django.contrib.auth.models import Group
 
+from unfold.admin import ModelAdmin
+from unfold.forms import UserCreationForm, UserChangeForm
+
 from .models import User
 from .admingroupform import GroupAdminForm
 
@@ -12,7 +15,7 @@ admin.site.unregister(Group)
 
 # Create a new Group admin.
 @admin.register(Group)
-class GroupAdmin(admin.ModelAdmin):
+class GroupAdmin(ModelAdmin):
     # Use our custom form.
     form = GroupAdminForm
     # Filter permissions horizontal as well.
@@ -21,14 +24,14 @@ class GroupAdmin(admin.ModelAdmin):
 # Register the new Group ModelAdmin.
 
 
-class CustomUserCreationForm(UserCreationForm, admin.ModelAdmin):
+class CustomUserCreationForm(UserCreationForm, ModelAdmin):
 
     class Meta(UserCreationForm.Meta):
         model = User
         fields = ()
 
 
-class CustomUserChangeForm(UserChangeForm, admin.ModelAdmin):
+class CustomUserChangeForm(UserChangeForm, ModelAdmin):
 
     class Meta(UserChangeForm.Meta):
         model = User
@@ -37,7 +40,7 @@ class CustomUserChangeForm(UserChangeForm, admin.ModelAdmin):
 
 
 @admin.register(User)
-class CustomUserAdmin(UserAdmin, admin.ModelAdmin):
+class CustomUserAdmin(UserAdmin, ModelAdmin):
 
     form = CustomUserChangeForm
     add_form = CustomUserCreationForm

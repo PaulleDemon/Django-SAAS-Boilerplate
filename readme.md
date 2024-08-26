@@ -1,6 +1,5 @@
 # Django SaaS Boilerplate (production ready)
-Focus on building your core functionality, skip writing repetitive code. Comes packed with landing page, 
-Payment integration, blog, sitemap and more.
+Focus on building your core functionality, skip writing repetitive code. Comes packed with landing page, Payment integration, blog, User model, sitemap and more.
 
 ### Why use Django SaaS boilerplate?
 Using a Django saas boilerplate can save you a lot of time, which is a huge benefit. Most customers don't care if you start from scratch or use a template; they just want their problem solved quickly. Whether you use Django or another framework usually doesn't matter to them as long as the job gets done efficiently.
@@ -28,6 +27,8 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 - 404 page
 - Has blog with Trix WYSIWYG editor built into the admin panel.
 - Technical SEO optimization.
+- ESP - use transactional emails at scale
+- Modern admin - uses unfold admin module.
 - Dynamic Sitemap.xml
 - Robots.txt
 - Google analytics
@@ -54,10 +55,7 @@ For testing stripe check out test cards: https://docs.stripe.com/testing
 **Free and opensource landing pages:** [Free landing pages](https://github.com/PaulleDemon/awesome-landing-pages)
 
 ### Django developer
-Looking for django developer to supercharge your development? contact [here](https://tally.so/r/woO0Kx)
-
-### Looking to learn about adding payment to Django?
-Check out this blog about [adding payment to django](https://dev.to/paul_freeman/adding-payment-to-django-app-4cc9). This should give you an overview about adding payments to Django.
+I fund open-source by providing custom works, so if you are looking for django developer to supercharge your development? contact [here](https://tally.so/r/woO0Kx)
 
 ### Table of contents
 
@@ -75,7 +73,7 @@ Check out this blog about [adding payment to django](https://dev.to/paul_freeman
 - [Deployment:](#deployment)
   - [Create a firebase credential file](#create-a-firebase-credential-file)
   - [Deploying credential file to production](#deploying-credential-file-to-production)
-
+- [Tutorials](#tutorials)
 
 ## Local development
 
@@ -262,6 +260,14 @@ So convert the credential file to base64 using
 base64 firebase-cred.json > encoded.txt
 ```
 Now copy the contents of encoded.txt and paste it in `FIREBASE_ENCODED="wedde"` variable
+
+### Tutorials
+  #### Looking to learn about adding payment to Django?
+  Check out this blog about [adding payment to django](https://dev.to/paul_freeman/adding-payment-to-django-app-4cc9). This should give you an overview about adding payments to Django.
+
+  #### Adding ESP
+  Check out this blog on adding ESP to help you supercharge [transactional emails](https://dev.to/paul_freeman/adding-esp-to-supercharge-your-django-email-4jkp)
+
 
 ## Images credits
 Images are taken from free to use sites such as 
