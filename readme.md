@@ -46,7 +46,7 @@ demo@mail.com
 demo123*
 ```
 >[!NOTE]
-> You will not receive any email upon signup as its disabled, use the above account to login
+> You will not receive any confirmation email upon signup as its disabled, use the above account to login to admin dashboard
 
 For testing stripe check out test cards: https://docs.stripe.com/testing
 
