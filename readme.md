@@ -32,7 +32,6 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 - Dynamic Sitemap.xml
 - Robots.txt
 - Google analytics
-- Custom user model.
 - Django storages integration (default Google Object storage)
 - Tailwind css setup for rapid development (note: the tailwind classes are prefixed with `tw-`, to differentiate them)
 
