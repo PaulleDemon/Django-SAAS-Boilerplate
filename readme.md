@@ -205,7 +205,7 @@ To add scripts at the end of the elements
 
 ### Payment - Stripe
 By default it is set up to use Stripe you can however change this to use other 
-payment gateways supported by stripe. 
+payment gateways supported by django-payments. 
 
 > [!CAUTION]  
 > Don't make payment to your self in production, as this goes against Stripe terms of use. Use only stripe test account for testing purposes.
