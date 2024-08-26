@@ -114,6 +114,8 @@ INSTALLED_APPS = [
     'transaction',
 ]
 
+if not DEBUG:
+    INSTALLED_APPS += ['anymail'] 
 
 SITE_ID = 1 # for sitemaps
 ANALYTICS_TAG_ID = env('GOOGLE_ANALYTICS') # for analytics tag on frontend
@@ -195,7 +197,7 @@ if DEBUG:
 else: 
     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend' # This is only for development
 
-    # uncomment below for production emailing
+    # uncomment below for default production emailing
     # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # for production
 
     # EMAIL_HOST = env('EMAIL_HOST') #eg: smtpout.secureserver.net
@@ -207,6 +209,18 @@ else:
     # DEFAULT_FROM_EMAIL = Address(display_name=env('EMAIL_HOST_USER'), addr_spec=EMAIL_HOST_USER)
 
     # EMAIL_USE_SSL = True
+
+    # uncomment below for ESP, read: https://dev.to/paul_freeman/adding-esp-to-supercharge-your-django-email-4jkp
+
+    # EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
+        
+    # BREVO_API_URL = "https://api.brevo.com/v3/"
+    
+    # ANYMAIL = {
+    #         "BREVO_API_KEY": env('BREVO_API_KEY'), # use brevo api key instead of smtp key 
+    #         "IGNORE_RECIPIENT_STATUS": True,
+    #     }
+    # DEFAULT_FROM_EMAIL = env('EMAIL_HOST_USER')  # default from email
 
 
 TEMPLATES = [
