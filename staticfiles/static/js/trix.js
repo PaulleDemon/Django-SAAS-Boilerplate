@@ -15,21 +15,20 @@ Trix.config.blockAttributes.heading3 = {
 
 
 function getCookie(name) {
-    let cookieValue = null;
+    let cookieValue = null
     if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
+        const cookies = document.cookie.split(';')
         for (let i = 0; i < cookies.length; i++) {
-            let cookie = cookies[i].trim();
+            let cookie = cookies[i].trim()
             // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
+                break
             }
         }
     }
-    return cookieValue;
+    return cookieValue
 }
-
 let fileUploadBtn = document.querySelector("[data-trix-action='attachFiles']")
 
 
@@ -111,18 +110,34 @@ function uploadFile(file, progressCallback, successCallback) {
 window.addEventListener("trix-initialize", event => {
 
     const { toolbarElement } = event.target
-    const h1Button = toolbarElement.querySelector("[data-trix-attribute=heading1]")
-    
-    h1Button.insertAdjacentHTML("afterend", `
-        <button type="button" class="trix-button" data-trix-attribute="heading2" 
-                title="Heading 2" tabindex="-1" data-trix-active="">H2</button>
-    `)
-    const h2Button = toolbarElement.querySelector("[data-trix-attribute=heading2]")
 
-    h2Button.insertAdjacentHTML("afterend", `
-        <button type="button" class="trix-button" data-trix-attribute="heading3" 
-        title="Heading 3" tabindex="-1" data-trix-active="">H3</button>
-    `)
+    if (!toolbarElement.querySelector("[data-trix-action='attachFiles']")) {
+        // for unfold trix editor
+        const strikeAttribute = toolbarElement.querySelector("[data-trix-attribute='strike']")
+
+        // Add the file upload button to the toolbar
+        strikeAttribute.insertAdjacentHTML("afterend", `
+            <button type="button" class="border-r cursor-pointer flex items-center h-8 justify-center transition-colors w-8 hover:text-primary-600 dark:border-gray-700" 
+                    data-trix-action="attachFiles" title="Attach files" tabindex="-1">
+                    <span class="material-symbols-outlined">
+                        upload
+                    </span>
+            </button>
+        `)
+    }
+
+    const h1Button = toolbarElement.querySelector("[data-trix-attribute=heading1]")
+
+    // h1Button.insertAdjacentHTML("afterend", `
+    //     <button type="button" class="trix-button" data-trix-attribute="heading2" 
+    //             title="Heading 2" tabindex="-1" data-trix-active="">H2</button>
+    // `)
+    // const h2Button = toolbarElement.querySelector("[data-trix-attribute=heading2]")
+
+    // h2Button.insertAdjacentHTML("afterend", `
+    //     <button type="button" class="trix-button" data-trix-attribute="heading3" 
+    //     title="Heading 3" tabindex="-1" data-trix-active="">H3</button>
+    // `)
     
     
 })
