@@ -15,26 +15,26 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 * People who just finished building core functionality and are looking to integrate landing page, blog, payment etc.
 
 ### What features does Django template include?
-- Production ready, you can immediately deploy this to cloud such as Vercel, Railway.app, Render.com etc.
-- Comes with a landing page that you can modify.
-- Responsive design, forget about making things responsive yourself.
-- Pricing page
-- Postgres DB ready
-- ESP - use transactional emails at scale
-- Modern admin - uses unfold admin module.
-- Payment integration - Default Stripe integration, just add your stripe keys and get started
-- Recurring charges
-- Custom user model.
-- Login and Signup flow, including, verification email, resend token, password reset.
-- Contact us page.
-- 404 page
-- Has blog with Trix WYSIWYG editor built into the admin panel.
-- Technical SEO optimization.
-- Dynamic Sitemap.xml
-- Robots.txt
-- Google analytics
-- Django storages integration (default Google Object storage)
-- Tailwind css setup for rapid development (note: the tailwind classes are prefixed with `tw-`, to differentiate them)
+- [x] **Production ready**: you can immediately deploy this to cloud such as Vercel, Railway.app, Render.com etc.
+- [x] Comes with a default landing page that you can modify, for more landing pages visit [Awesome landing pages](https://github.com/PaulleDemon/awesome-landing-pages).
+- [x] **Responsive design**: forget about making things responsive yourself, as it includes responsive `base.html`, you can extend from.
+- [x] **Pricing page**: Comes with a basic pricing page you can modify
+- [x] **Postgres DB ready**: Comes with postgres Db configuration for production
+- [x] **ESP**: use transactional emails at scale (sending email notifications)
+- [x] **Modern admin:** uses unfold admin module.
+- [x] **Payment integration:** Default Stripe integration, just add your stripe keys and get started
+- [x] Recurring charges
+- [x] **Custom user model:** Easily modify the user model.
+- [x] **Login and Signup flow:** Including, verification email, resend token, password reset.
+- [x] **Blog:** Has blog with Trix WYSIWYG editor built into the admin panel.
+- [x] Contact us page.
+- [x] 404 page
+- [x] Technical SEO optimization.
+- [x] Dynamic Sitemap.xml
+- [x] Robots.txt
+- [x] Google analytics
+- [x] **Django storages:** Storage integration for production (default Google Object storage)
+- [x] **Tailwind css:** setup for rapid development (note: the tailwind classes are prefixed with `tw-`, to differentiate them)
 
 
 ### Demo
