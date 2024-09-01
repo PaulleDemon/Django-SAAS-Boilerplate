@@ -27,7 +27,7 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 - [x] **Custom user model:** Easily modify the user model.
 - [x] **Login and Signup flow:** Including, verification email, resend token, password reset.
 - [x] **Blog:** Has blog with Trix WYSIWYG editor built into the admin panel.
-- [x] Contact us page.
+- [x] **Contact us:** Contact page and model to manage customer enquires.
 - [x] 404 page
 - [x] Technical SEO optimization.
 - [x] Dynamic Sitemap.xml
