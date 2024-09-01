@@ -62,7 +62,7 @@ I fund open-source by providing custom works, so if you are looking for django d
 
 - [Why use Django website boilerplate?](#why-use-django-website-boilerplate)
 - [What features does Django template include?](#what-features-does-django-template-include)
-- [Do I need to be an expert in Django to use this?](#do-i-need-to-be-an-expert-in-django-to-use-this)
+
 - [Demo](#demo)
 
 - [Local development](#local-development)
