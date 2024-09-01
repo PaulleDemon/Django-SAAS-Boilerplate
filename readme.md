@@ -242,7 +242,8 @@ To generate secret key use `from django.core.management.utils import get_random_
 
 ### Create a firebase credential file
 
->**Note:** We'll be using firebase for persistent storage, to upload user files. Firebase is pre-configured as there are other firebase services developers may want to use. <br><br> You can also use any of the storage supported by [django-storages](https://github.com/jschneier/django-storages), if you don't want to use firebase.
+> [!NOTE] 
+We'll be using firebase for persistent storage, to upload user files. Firebase is pre-configured as there are other firebase services developers may want to use. <br><br> You can also use any of the storage supported by [django-storages](https://github.com/jschneier/django-storages), if you don't want to use firebase.
 
 To use Firebase
 
