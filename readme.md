@@ -35,7 +35,7 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 - [x] Google analytics
 - [x] **Django storages:** Storage integration for production (default Google Object storage)
 - [x] **Tailwind css:** setup for rapid development (note: the tailwind classes are prefixed with `tw-`, to differentiate them)
-
+- [ ] **CLI Wizard:** Customize your setup with CLI wizard (upcoming)
 
 ### Demo
 Visit the demo site: [Django Demo website](https://django-saas-boilerplate.vercel.app/)
