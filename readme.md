@@ -9,7 +9,9 @@ This boilerplate can help you save hours of work, allowing you to focus on core 
 **#CodeLessShipMore**
 
 ### Want to help me write more open-source?
+
 Consider buying me a coffee
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L3L612WN7K)
 
 ### who is this boilerplate suitable for?
